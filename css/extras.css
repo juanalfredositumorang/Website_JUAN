@@ -1,0 +1,51 @@
+/* === EXTRAS: Command Palette, Terminal, Side Dots, Clock, Spotlight === */
+#xp{position:fixed;inset:0;z-index:10000;display:none;align-items:flex-start;justify-content:center;padding-top:14vh;background:rgba(5,8,20,.55);backdrop-filter:blur(8px)}
+#xp.open{display:flex;animation:xf .2s}@keyframes xf{from{opacity:0}}
+.xp-box{width:min(620px,92vw);background:rgba(15,17,28,.97);color:#e5e7eb;border:1px solid rgba(59,130,246,.35);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 40px rgba(59,130,246,.18);overflow:hidden;font-family:'Plus Jakarta Sans',sans-serif}
+.xp-in{width:100%;padding:18px 20px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;font-size:1.05rem;outline:none;font-family:inherit}
+.xp-list{list-style:none;max-height:340px;overflow:auto;padding:8px}
+.xp-list li{display:flex;gap:12px;align-items:center;padding:11px 14px;border-radius:12px;cursor:pointer;font-size:.95rem}
+.xp-list li b{width:28px;text-align:center;color:#60a5fa}
+.xp-list li.on,.xp-list li:hover{background:linear-gradient(90deg,rgba(59,130,246,.25),rgba(0,240,255,.12))}
+.xp-list .xp-empty{opacity:.6;cursor:default}
+.xp-ft{display:flex;gap:18px;padding:10px 18px;font-size:.72rem;color:#9ca3af;border-top:1px solid rgba(255,255,255,.08)}
+#xt{position:fixed;left:50%;bottom:24px;translate:-50% 30px;width:min(680px,94vw);height:min(360px,60vh);z-index:10001;display:none;flex-direction:column;background:rgba(8,10,16,.97);color:#a7f3d0;border:1px solid rgba(0,240,255,.3);border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.6);font:13px/1.55 ui-monospace,Consolas,'Courier New',monospace;overflow:hidden}
+#xt.open{display:flex;animation:xu .3s forwards}@keyframes xu{to{translate:-50% 0}}
+.xt-bar{display:flex;align-items:center;gap:7px;padding:9px 14px;background:#11141d;color:#9ca3af}
+.xt-bar i{width:11px;height:11px;border-radius:50%;background:#ef4444}.xt-bar i:nth-child(2){background:#f59e0b}.xt-bar i:nth-child(3){background:#22c55e}
+.xt-bar span{margin-left:8px;flex:1}.xt-bar button{background:none;border:0;color:#9ca3af;font-size:1.2rem;cursor:pointer}
+.xt-out{flex:1;overflow:auto;padding:12px 16px}.xt-out div{white-space:pre-wrap}.xt-out .cmd{color:#fff}.xt-out .err{color:#fca5a5}.xt-out .ok{color:#67e8f9}
+.xt-row{display:flex;gap:8px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.08)}.xt-row input{flex:1;background:none;border:0;outline:none;color:#fff;font:inherit}
+#xd{position:fixed;right:14px;top:50%;translate:0 -50%;z-index:900;display:flex;flex-direction:column;gap:12px}
+#xd a{position:relative;width:10px;height:10px;border-radius:50%;background:rgba(120,130,150,.55);transition:.3s}
+#xd a.on{background:#3b82f6;box-shadow:0 0 12px #3b82f6;scale:1.5}
+#xd a span{position:absolute;right:20px;top:50%;translate:8px -50%;opacity:0;pointer-events:none;white-space:nowrap;background:#0f111c;color:#fff;font:600 .72rem 'Plus Jakarta Sans',sans-serif;padding:4px 10px;border-radius:8px;transition:.25s}
+#xd a:hover span{opacity:1;translate:0 -50%}
+#xc{position:fixed;left:18px;bottom:18px;z-index:900;display:flex;align-items:center;gap:9px;padding:9px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.15);background:rgba(15,17,28,.88);backdrop-filter:blur(10px);color:#e5e7eb;font:600 .78rem 'Plus Jakarta Sans',sans-serif;cursor:pointer}
+#xc i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:xb 1.6s infinite}@keyframes xb{50%{opacity:.35}}
+#xc kbd{padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.1);font:inherit;font-size:.68rem}
+.project-card,.skill-card{position:relative}
+.project-card::after,.skill-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(59,130,246,.2),transparent 70%)}
+.project-card:hover::after,.skill-card:hover::after{opacity:1}
+@media(max-width:900px){#xd{display:none}#xc kbd{display:none}}
+
+/* === Sertifikat dengan gambar + lightbox === */
+.cert-card{cursor:pointer;overflow:hidden}
+.cert-thumb{position:relative;margin:-1.75rem -1.75rem 1.25rem;aspect-ratio:1.414/1;overflow:hidden;background:#e5e7eb}
+.cert-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cert-card:hover .cert-thumb img{transform:scale(1.06)}
+.cert-zoom{position:absolute;right:.75rem;bottom:.75rem;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,10,.7);color:#fff;font-size:.85rem;opacity:0;transition:.3s}
+.cert-card:hover .cert-zoom,.cert-card:focus-visible .cert-zoom{opacity:1}
+.cert-card .cert-icon{font-size:1.25rem;margin-bottom:.6rem}
+.cert-desc{font-size:.85rem;line-height:1.6;color:#6B7280;margin-bottom:.5rem}
+html.dark .cert-desc{color:#9CA3AF}
+.cert-id i{margin-right:.35rem}
+#cert-lightbox{position:fixed;inset:0;z-index:10002;display:none;align-items:center;justify-content:center;padding:4vh 4vw;background:rgba(5,8,20,.88);backdrop-filter:blur(8px);cursor:zoom-out}
+#cert-lightbox.open{display:flex;animation:xf .25s}
+#cert-lightbox figure{max-width:min(1100px,100%);margin:0;text-align:center}
+#cert-lightbox img{max-width:100%;max-height:78vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6);cursor:default}
+#cert-lightbox figcaption{margin-top:1rem;color:#e5e7eb;font:600 .95rem 'Plus Jakarta Sans',sans-serif}
+.cert-lb-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:1.1rem;cursor:pointer}
+.about-edu-list{display:flex;flex-direction:column;gap:.35rem;margin-top:.15rem}
+.about-edu-list span{display:block;font-size:.9rem;line-height:1.45;font-weight:600}
+.about-edu-list small{display:block;font-weight:400;opacity:.65;font-size:.78rem}

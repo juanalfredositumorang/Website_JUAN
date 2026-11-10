@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>JUAN ALFREDO FERRYRA SITUMORANG — Fullstack Developer & Creative Technologist</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio resmi Juan Alfredo Ferryra Situmorang. Fullstack Developer yang membangun aplikasi web modern, performa tinggi, dan pengalaman digital berkelas dunia.">
+  <meta name="keywords" content="Juan Alfredo Ferryra Situmorang, Juan Situmorang, Fullstack Developer, Web Developer Indonesia, Frontend Developer, React, Node.js, UI/UX Designer, Portfolio">
+  <meta name="author" content="Juan Alfredo Ferryra Situmorang">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juanalfredo.dev/">
+  <meta property="og:title" content="JUAN ALFREDO FERRYRA SITUMORANG — Fullstack Developer">
+  <meta property="og:description" content="Portfolio premium bergaya modern & kreatif untuk Fullstack Developer. Bersih di tampilan, kuat di inti.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://juanalfredo.dev/">
+  <meta property="twitter:title" content="JUAN ALFREDO FERRYRA SITUMORANG — Fullstack Developer">
+  <meta property="twitter:description" content="Fullstack developer yang membangun web modern dari frontend sampai server.">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Favicon (Inline SVG modern "J" logo) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%230a0a0a'/><path d='M65 25 H45 V60 C45 68 40 73 32 73 C26 73 22 70 20 66 L12 73 C16 80 23 85 33 85 C48 85 57 76 57 60 V37 H65 Z' fill='%233b82f6'/><circle cx='68' cy='25' r='5' fill='%2300f0ff'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Noto+Sans+JP:wght@400;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Modular CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/extras.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification">
+    <i class="fa-solid fa-circle-check text-emerald-400" style="color: #34D399;"></i>
+    <span id="toast-message">Email berhasil disalin ke clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       LOADING SCREEN (PRELOADER)
+       ========================================================================== -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <!-- Animated SVG "J" Logo -->
+      <svg class="preloader-svg" viewBox="0 0 100 100">
+        <!-- Glow Aura -->
+        <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="2" />
+        <!-- Letter J Draw Path -->
+        <path class="preloader-path" d="M68 22 H46 V62 C46 72 40 78 30 78 C22 78 16 73 14 66 L24 60 C25 64 27 68 31 68 C35 68 37 65 37 60 V31 H68 Z" />
+        <!-- Letter J Fill -->
+        <path class="preloader-fill" d="M68 22 H46 V62 C46 72 40 78 30 78 C22 78 16 73 14 66 L24 60 C25 64 27 68 31 68 C35 68 37 65 37 60 V31 H68 Z" />
+        <!-- Blue Electric Accent Dot -->
+        <circle class="preloader-dot" cx="74" cy="22" r="6" />
+      </svg>
+      <div class="preloader-tagline">JUAN ALFREDO • FULLSTACK</div>
+    </div>
+    <!-- Counter at Corner -->
+    <div class="preloader-counter">
+      <span id="preloader-percent">0</span>%
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVBAR (FLOATING PILL)
+       ========================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar-pill">
+      <!-- Left Logo "J" -->
+      <a href="#hero" class="nav-brand" aria-label="Beranda Juan Situmorang">
+        <div class="nav-logo-circle">J</div>
+        <span class="nav-brand-text">JUAN.DEV</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu" id="nav-desktop-menu">
+        <div class="nav-pill-indicator" id="nav-indicator"></div>
+        <li><a href="#hero" class="nav-link active" data-nav="hero">Beranda</a></li>
+        <li><a href="#tentang" class="nav-link" data-nav="tentang">Tentang</a></li>
+        <li><a href="#keahlian" class="nav-link" data-nav="keahlian">Keahlian</a></li>
+        <li><a href="#proyek" class="nav-link" data-nav="proyek">Proyek</a></li>
+        <li><a href="#galeri" class="nav-link" data-nav="galeri">Galeri</a></li>
+        <li><a href="#pengalaman" class="nav-link" data-nav="pengalaman">Pengalaman</a></li>
+      </ul>
+
+      <!-- Right Actions: Language Toggle, Theme Toggle, Contact CTA -->
+      <div class="nav-actions">
+        <!-- Language Switcher (ID/EN) -->
+        <button id="lang-toggle-btn" class="btn-lang" title="Ganti Bahasa / Switch Language">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-label">ID</span>
+        </button>
+
+        <!-- Theme Mode Toggle -->
+        <button id="theme-toggle-btn" class="btn-theme-toggle" title="Ganti Mode Terang/Gelap" aria-label="Toggle Mode Gelap">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+
+        <!-- Contact CTA Button -->
+        <a href="#kontak" class="btn-contact-pill" id="nav-contact-btn">
+          <span>Hubungi Saya</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-toggle-btn" class="mobile-menu-btn" aria-label="Menu Navigasi Mobile">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer">
+    <a href="#hero" class="mobile-nav-link" data-nav="hero">Beranda</a>
+    <a href="#tentang" class="mobile-nav-link" data-nav="tentang">Tentang</a>
+    <a href="#keahlian" class="mobile-nav-link" data-nav="keahlian">Keahlian</a>
+    <a href="#proyek" class="mobile-nav-link" data-nav="proyek">Proyek</a>
+    <a href="#galeri" class="mobile-nav-link" data-nav="galeri">Galeri</a>
+    <a href="#pengalaman" class="mobile-nav-link" data-nav="pengalaman">Pengalaman</a>
+    <a href="#kontak" class="mobile-nav-link" data-nav="kontak">Hubungi Saya ↗</a>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION (LIGHT BACKGROUND)
+       ========================================================================== -->
+  <section id="hero" class="section-light">
+    <!-- Interactive Aura Canvas -->
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="container hero-grid">
+      <!-- Left Column: Typography & CTAs -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span id="hero-status-pill">Tersedia untuk Pekerjaan & Proyek Baru</span>
+        </div>
+
+        <h1 class="hero-main-title">
+          <span class="hero-text-muted" id="hero-lead-gray">Fullstack developer yang membangun web modern dari frontend sampai server,</span>
+          <span class="hero-text-bold" id="hero-lead-bold">rapi di tampilan, kuat di inti.</span>
+        </h1>
+
+        <!-- Typing subtitle -->
+        <div class="hero-typing-wrap">
+          <i class="fa-solid fa-code text-blue-500"></i>
+          <span id="hero-typewriter"></span>
+          <span class="typing-cursor"></span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions">
+          <a href="#proyek" class="btn-primary" id="hero-cta-project">
+            <span>Eksplorasi Proyek</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#kontak" class="btn-secondary" id="hero-cta-contact">
+            <span>Hubungi Saya</span>
+            <i class="fa-regular fa-paper-plane"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Center Column: Holographic Domain & Orbiting Project Showcase -->
+      <div class="hero-center-stage" id="hero-character-stage">
+        <!-- Giant Typography: [JUAN] -->
+        <div class="hero-giant-name" id="hero-giant-text">[JUAN]</div>
+
+        <!-- Hologram & Domain Expansion Stage -->
+        <div class="hero-hologram-stage" id="hero-hologram-stage">
+          <!-- Cursed Blue Aura Halo -->
+          <div class="cursed-aura-halo"></div>
+
+          <!-- Rotating Holographic Domain Ring -->
+          <div class="hero-rune-ring"></div>
+
+          <!-- Center Interactive Core Badge -->
+          <div class="hero-center-badge" id="hero-core-badge" title="Klik untuk melompat ke Proyek">
+            <div class="hero-badge-title">[JUAN.DEV]</div>
+            <div class="hero-badge-sub"><i class="fa-solid fa-bolt" style="color: #00F0FF; margin-right: 0.35rem;"></i>FULLSTACK & LARAVEL 12</div>
+          </div>
+
+          <!-- Floating Orbiting Project Card 1: MangaDesu (New image) -->
+          <a href="#proyek" class="floating-hero-card f-card-1" title="Lihat MangaDesu">
+            <img src="assets/project-mangadesu.png" alt="MangaDesu" class="floating-card-thumb">
+            <div class="floating-card-info">
+              <h5>MangaDesu</h5>
+              <span>Laravel 12 • Anime Web</span>
+            </div>
+          </a>
+
+          <!-- Floating Orbiting Project Card 2: KedokteranAI -->
+          <a href="#proyek" class="floating-hero-card f-card-2" title="Lihat KedokteranAI">
+            <img src="assets/project-kedokteranai.png" alt="KedokteranAI" class="floating-card-thumb">
+            <div class="floating-card-info">
+              <h5>KedokteranAI</h5>
+              <span>Gemini AI • HealthTech</span>
+            </div>
+          </a>
+
+          <!-- Floating Orbiting Project Card 3: RajaWisata -->
+          <a href="#proyek" class="floating-hero-card f-card-3" title="Lihat RajaWisata">
+            <img src="assets/project-rajawisata.png" alt="RajaWisata" class="floating-card-thumb">
+            <div class="floating-card-info">
+              <h5>RajaWisata</h5>
+              <span>Tourism Web Portal</span>
+            </div>
+          </a>
+
+          <!-- Floating Orbiting Project Card 4: DozeCafe -->
+          <a href="#proyek" class="floating-hero-card f-card-4" title="Lihat DozeCafe">
+            <img src="assets/project-dozecafe.jpg" alt="DozeCafe" class="floating-card-thumb">
+            <div class="floating-card-info">
+              <h5>DozeCafe</h5>
+              <span>Modern Coffee F&B</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Japanese Vertical Typography -->
+      <div class="hero-right-jp">
+        <span class="jp-tag-badge">呪術開発</span>
+        <div class="jp-vertical-line"></div>
+        <div class="jp-vertical-text">ジュアン・アルフレド・フェレイラ・シトゥモラン</div>
+        <div class="jp-vertical-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TENTANG / ABOUT SECTION (DARK BACKGROUND)
+       ========================================================================== -->
+  <section id="tentang" class="section-dark">
+    <div class="container">
+      <div class="section-tag" id="about-tag">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <span>Tentang Saya</span>
+      </div>
+
+      <!-- Giant Lead Heading -->
+      <h2 class="about-lead-heading" id="about-lead-title">
+        Membangun website yang bersih, hidup, & <em>mudah digunakan.</em>
+      </h2>
+
+      <div class="about-layout">
+        <!-- Left: Bio & Buttons -->
+        <div class="about-text-content">
+          <p id="about-bio-p1">
+            Halo! Saya <strong>Juan Alfredo Ferryra Situmorang</strong>, mahasiswa Teknik Informatika di <strong>Universitas Pamulang</strong> dan lulusan SMK Bina Putra Mandiri jurusan Teknik Komputer Jaringan. Saya sedang berkembang sebagai Fullstack Developer dengan fokus pada antarmuka interaktif yang rapi serta backend yang kokoh, cepat, dan terukur.
+          </p>
+          <p id="about-bio-p2">
+            Berbekal dasar jaringan dari SMK dan ilmu pemrograman dari bangku kuliah, saya terus belajar lewat proyek nyata, workshop, seminar, hingga hackathon, untuk mengubah ide menjadi produk digital yang intuitif, aman, dan nyaman digunakan.
+          </p>
+
+          <div class="about-actions">
+            <a href="#proyek" class="btn-primary" style="background: var(--accent-gradient);">
+              <span id="btn-see-projects">Lihat Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#kontak" class="btn-secondary" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.15);">
+              <span id="btn-contact-me">Hubungi Saya</span>
+              <i class="fa-regular fa-comment-dots"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Glassmorphism Info Cards & Profile Photo -->
+        <div class="about-glass-cards">
+          <!-- Real Portrait Photo Card -->
+          <div class="about-profile-card">
+            <img src="assets/juan-profile.jpg" alt="Foto Juan Alfredo" class="about-profile-img">
+            <div class="about-profile-overlay">
+              <div class="about-profile-name">Juan Alfredo F. Situmorang</div>
+              <div class="about-profile-title">Mahasiswa Teknik Informatika • Fullstack Developer</div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-label">
+              <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+              <span id="card-label-edu">Pendidikan</span>
+            </div>
+            <div class="glass-card-value about-edu-list">
+              <span>Universitas Pamulang<small>S1 Teknik Informatika (Mahasiswa)</small></span>
+              <span>SMK Bina Putra Mandiri<small>Teknik Komputer Jaringan (Lulusan)</small></span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-label">
+              <i class="fa-solid fa-code-branch text-blue-400"></i>
+              <span id="card-label-role">Peran Utama</span>
+            </div>
+            <div class="glass-card-value">Fullstack Developer</div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-label">
+              <i class="fa-solid fa-location-dot text-rose-400"></i>
+              <span id="card-label-loc">Lokasi</span>
+            </div>
+            <div class="glass-card-value">Indonesia</div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-label">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span id="card-label-status">Status Ketersediaan</span>
+            </div>
+            <div class="glass-card-value status-badge-inline">
+              <span class="pulse-dot"></span>
+              <span>Terbuka untuk Proyek</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-label">
+              <i class="fa-solid fa-bullseye text-cyan-400"></i>
+              <span id="card-label-focus">Fokus Teknologi</span>
+            </div>
+            <div class="glass-card-value">Gemini AI, React & Node.js</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Counters Row -->
+      <div class="counters-grid">
+        <div class="counter-item">
+          <div class="counter-number">
+            <span class="counter-val" data-target="35">0</span>
+            <span class="counter-plus">+</span>
+          </div>
+          <div class="counter-label" id="counter-lbl-projects">Proyek Selesai</div>
+        </div>
+
+        <div class="counter-item">
+          <div class="counter-number">
+            <span class="counter-val" data-target="4">0</span>
+            <span class="counter-plus">+</span>
+          </div>
+          <div class="counter-label" id="counter-lbl-exp">Tahun Pengalaman</div>
+        </div>
+
+        <div class="counter-item">
+          <div class="counter-number">
+            <span class="counter-val" data-target="25">0</span>
+            <span class="counter-plus">+</span>
+          </div>
+          <div class="counter-label" id="counter-lbl-clients">Klien Puas</div>
+        </div>
+
+        <div class="counter-item">
+          <div class="counter-number">
+            <span class="counter-val" data-target="99">0</span>
+            <span class="counter-plus">%</span>
+          </div>
+          <div class="counter-label" id="counter-lbl-satisfaction">Kepuasan Klien</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       KEAHLIAN / SKILLS SECTION (LIGHT BACKGROUND)
+       ========================================================================== -->
+  <section id="keahlian" class="section-light">
+    <!-- SVG Gradient Definition for Skill Progress Rings -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+      <defs>
+        <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3B82F6" />
+          <stop offset="100%" stop-color="#06B6D4" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="container">
+      <div class="skills-header-wrap">
+        <div>
+          <div class="section-tag" id="skills-tag">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Kemampuan Teknis</span>
+          </div>
+          <h2 class="section-title font-heading" id="skills-title">Keahlian & <em>Stack Teknologi</em></h2>
+        </div>
+        <p class="section-desc" id="skills-desc">
+          Teknologi modern yang saya gunakan sehari-hari untuk merancang antarmuka cepat, responsif, dan sistem backend yang tangguh.
+        </p>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid" id="skills-container"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROYEK / PROJECTS SECTION
+       ========================================================================== -->
+  <section id="proyek">
+    <div class="container">
+      <div class="skills-header-wrap">
+        <div>
+          <div class="section-tag" style="background: rgba(59, 130, 246, 0.15); color: #00F0FF; border-color: rgba(0, 240, 255, 0.2);">
+            <i class="fa-solid fa-briefcase"></i>
+            <span id="proj-tag">Karya Terpilih</span>
+          </div>
+          <h2 class="section-title font-heading" style="color: #FFFFFF;" id="proj-title">Proyek <em>Terbaru</em></h2>
+        </div>
+        <p class="section-desc" style="color: #9CA3AF;" id="proj-desc">
+          Koleksi proyek nyata dan open-source dari pengembangan aplikasi web skala penuh hingga rancangan UI/UX premium.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="projects-filter-bar" id="project-filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="web">Web App</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+  <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup Detail Proyek">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-image-showcase">
+        <img id="modal-img" src="" alt="Screenshot Proyek">
+      </div>
+      <div class="modal-body">
+        <div class="project-badge-overlay" id="modal-badge" style="position: static; display: inline-block; margin-bottom: 1rem;">Kategori</div>
+        <h3 class="modal-title font-heading" id="modal-title" style="font-size: 2rem; color: #FFFFFF; margin-bottom: 1rem;">Judul Proyek</h3>
+        <p id="modal-desc" style="color: #D1D5DB; line-height: 1.8; margin-bottom: 1.5rem;"></p>
+        
+        <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 0.75rem; font-weight: 700;">Teknologi yang Digunakan:</h4>
+        <div class="project-tech-tags" id="modal-tags" style="margin-bottom: 2rem;"></div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" id="modal-live-link" style="background: var(--accent-gradient);">
+            <span>Kunjungi Website Demo</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="modal-repo-link" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.15);">
+            <span>Lihat Repositori Kode</span>
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       GALERI / VISUAL GALLERY SECTION (3D CAROUSEL & LIGHTBOX)
+       ========================================================================== -->
+  <section id="galeri" class="section-light">
+    <div class="container">
+      <div class="skills-header-wrap">
+        <div>
+          <div class="section-tag" id="gallery-tag">
+            <i class="fa-solid fa-images"></i>
+            <span>Visual Showcase</span>
+          </div>
+          <h2 class="section-title font-heading" id="gallery-title">Galeri <em>Visual</em></h2>
+        </div>
+        <div>
+          <p class="section-desc" id="gallery-desc">
+            Eksplorasi antarmuka kreatif, proyek nyata (KedokteranAI, RajaWisata, DozeCafe), dan dokumentasi visual. Geser atau klik untuk memperbesar.
+          </p>
+          <div class="gallery-swipe-hint">
+            <i class="fa-solid fa-arrows-left-right"></i>
+            <span>Geser dengan mouse atau swipe layar untuk menjelajah</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Curved Horizontal Carousel -->
+      <div class="gallery-carousel-wrapper">
+        <div class="gallery-track" id="gallery-track"></div>
+      </div>
+
+      <!-- Gallery Controls -->
+      <div class="gallery-controls">
+        <button class="gallery-btn" id="gallery-prev-btn" aria-label="Sebelumnya">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="gallery-btn" id="gallery-next-btn" aria-label="Berikutnya">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PENGALAMAN / EXPERIENCE SECTION (DARK BACKGROUND + GLOWING TIMELINE)
+       ========================================================================== -->
+  <section id="pengalaman" class="section-dark">
+    <div class="container">
+      <div class="skills-header-wrap">
+        <div>
+          <div class="section-tag" style="background: rgba(59, 130, 246, 0.15); color: #00F0FF; border-color: rgba(0, 240, 255, 0.2);">
+            <i class="fa-solid fa-timeline"></i>
+            <span id="exp-tag">Rekam Jejak</span>
+          </div>
+          <h2 class="section-title font-heading" style="color: #FFFFFF;" id="exp-title">Perjalanan <em>Karier</em></h2>
+        </div>
+        <p class="section-desc" style="color: #9CA3AF;" id="exp-desc">
+          Perjalanan profesional saya dalam membangun produk digital dan berkolaborasi dengan berbagai tim lintas disiplin.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline with Glowing Progress Line -->
+      <div class="timeline-container" id="timeline-container">
+        <!-- Static background guide line -->
+        <div class="timeline-line-bg"></div>
+        <!-- Animated glowing blue progress line -->
+        <div class="timeline-line-fill" id="timeline-fill"></div>
+
+        <!-- Timeline Items rendered dynamically -->
+        <div id="timeline-items-wrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TESTIMONI & SERTIFIKAT SECTION (LIGHT BACKGROUND)
+       ========================================================================== -->
+  <section id="testimoni" class="section-light">
+    <div class="container">
+      <!-- Testimonials Header -->
+      <div class="skills-header-wrap" style="justify-content: center; text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto;">
+          <div class="section-tag" id="testi-tag">
+            <i class="fa-solid fa-comments"></i>
+            <span>Ulasan Teman & Rekan</span>
+          </div>
+          <h2 class="section-title font-heading" id="testi-title">Apa Kata <em>Teman & Rekan</em></h2>
+        </div>
+      </div>
+
+      <!-- Testimonial Slider -->
+      <div class="testimonials-slider-wrap">
+        <div id="testimonial-slides-container"></div>
+
+        <div class="testimonial-nav">
+          <button class="gallery-btn" id="testi-prev-btn" aria-label="Ulasan Sebelumnya">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="gallery-btn" id="testi-next-btn" aria-label="Ulasan Berikutnya">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Certifications Grid -->
+      <div style="margin-top: 6rem;">
+        <div class="skills-header-wrap">
+          <div>
+            <div class="section-tag" id="cert-tag">
+              <i class="fa-solid fa-certificate"></i>
+              <span>Sertifikat & Pelatihan</span>
+            </div>
+            <h2 class="section-title font-heading" id="cert-title">Sertifikat & <em>Pelatihan</em></h2>
+          </div>
+          <p class="section-desc" id="cert-desc">
+            Hackathon, workshop, seminar, dan kegiatan kampus yang saya ikuti. Klik sertifikat untuk memperbesar.
+          </p>
+        </div>
+
+        <div class="cert-grid" id="cert-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       KONTAK / CONTACT SECTION (DARK BACKGROUND)
+       ========================================================================== -->
+  <section id="kontak" class="section-dark">
+    <div class="container">
+      <div class="skills-header-wrap">
+        <div>
+          <div class="section-tag" style="background: rgba(59, 130, 246, 0.15); color: #00F0FF; border-color: rgba(0, 240, 255, 0.2);">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <span id="contact-tag">Mari Terhubung</span>
+          </div>
+          <h2 class="section-title font-heading" style="color: #FFFFFF;" id="contact-title">Mulai Sebuah <em>Kolaborasi</em></h2>
+        </div>
+        <p class="section-desc" style="color: #9CA3AF;" id="contact-desc">
+          Punya ide proyek menarik, tawaran pekerjaan, atau sekadar ingin berdiskusi seputar web development? Silakan kirimkan pesan Anda!
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Left: Contact Details -->
+        <div class="contact-info-wrap">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <div class="contact-item-label" id="lbl-email">Alamat Email</div>
+              <div class="contact-item-val" id="contact-email-val">juan.situmorang@example.com</div>
+              <!-- Copy Email Pill Button -->
+              <button class="email-copy-pill" id="copy-email-btn">
+                <i class="fa-regular fa-copy"></i>
+                <span id="btn-copy-label">Salin Email</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); color: #25D366;">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <div class="contact-item-label" id="lbl-wa">WhatsApp / Telepon</div>
+              <div class="contact-item-val" id="contact-wa-val">+62 812-3456-7890</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <div class="contact-item-label" id="lbl-location">Lokasi Domisili</div>
+              <div class="contact-item-val" id="contact-location-val">Indonesia (WIB / UTC+7)</div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="margin-top: 1rem; border-color: rgba(59, 130, 246, 0.3);">
+            <div style="font-size: 0.85rem; color: #9CA3AF; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+              <span>Garansi Respon Cepat</span>
+            </div>
+            <p style="font-size: 0.95rem; color: #E5E7EB; line-height: 1.6;">
+              Pesan masuk biasanya akan saya balas dalam waktu kurang dari 24 jam kerja.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-card">
+          <form id="portfolio-contact-form">
+            <div class="form-group">
+              <label class="form-label" for="form-name" id="lbl-form-name">Nama Lengkap *</label>
+              <input type="text" id="form-name" class="form-input" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-email" id="lbl-form-email">Alamat Email *</label>
+              <input type="email" id="form-email" class="form-input" placeholder="nama@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-subject" id="lbl-form-subject">Subjek / Topik *</label>
+              <input type="text" id="form-subject" class="form-input" placeholder="Contoh: Tawaran Proyek Fullstack Web" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="form-message" id="lbl-form-msg">Pesan Anda *</label>
+              <textarea id="form-message" class="form-textarea" placeholder="Ceritakan detail proyek atau pertanyaan Anda..." required></textarea>
+            </div>
+
+            <div class="form-buttons-row">
+              <button type="submit" class="btn-email-submit" id="btn-submit-email">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Kirim via Email</span>
+              </button>
+              <button type="button" class="btn-whatsapp" id="btn-submit-wa">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Kirim via WhatsApp</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top-row">
+        <!-- Quick Email Action -->
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <div style="font-weight: 700; font-size: 1.1rem; color: #FFFFFF;" id="footer-ready-text">
+            Siap mewujudkan proyek digital Anda berikutnya?
+          </div>
+          <button class="email-copy-pill" id="footer-copy-email-btn">
+            <i class="fa-solid fa-envelope"></i>
+            <span id="footer-email-val">juan.situmorang@example.com</span>
+            <i class="fa-regular fa-copy" style="font-size: 0.85rem; margin-left: 0.25rem;"></i>
+          </button>
+        </div>
+
+        <!-- Back to Top Button in Footer -->
+        <a href="#hero" class="btn-secondary" style="background: rgba(255,255,255,0.06); color: #FFFFFF; border-color: rgba(255,255,255,0.15); padding: 0.7rem 1.4rem;" id="footer-back-to-top">
+          <span>Kembali ke atas ↑</span>
+        </a>
+      </div>
+
+      <!-- Links Columns Grid -->
+      <div class="footer-links-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.25rem;">
+            <div class="nav-logo-circle" style="width: 34px; height: 34px; font-size: 0.95rem;">J</div>
+            <span style="font-family: var(--font-heading); font-size: 1.15rem; color: #FFFFFF;">JUAN.DEV</span>
+          </div>
+          <p style="color: #9CA3AF; font-size: 0.9rem; line-height: 1.7; max-width: 320px;" id="footer-bio-snippet">
+            Portfolio resmi Juan Alfredo Ferryra Situmorang. Fullstack developer yang menghadirkan web performa tinggi dengan estetika visual kelas atas.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title" id="ft-col-menu">Menu</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero" class="footer-link">Beranda</a></li>
+            <li><a href="#tentang" class="footer-link">Tentang</a></li>
+            <li><a href="#keahlian" class="footer-link">Keahlian</a></li>
+            <li><a href="#proyek" class="footer-link">Proyek</a></li>
+            <li><a href="#galeri" class="footer-link">Galeri</a></li>
+            <li><a href="#pengalaman" class="footer-link">Pengalaman</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title" id="ft-col-social">Sosial</div>
+          <div class="footer-social-row">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title" id="ft-col-contact">Kontak</div>
+          <ul class="footer-links-list">
+            <li style="color: #9CA3AF; font-size: 0.9rem;"><i class="fa-solid fa-map-pin text-blue-400" style="margin-right: 0.5rem;"></i> Indonesia</li>
+            <li style="color: #9CA3AF; font-size: 0.9rem;"><i class="fa-solid fa-clock text-blue-400" style="margin-right: 0.5rem;"></i> UTC+07:00 (WIB)</li>
+            <li style="color: #9CA3AF; font-size: 0.9rem;"><i class="fa-solid fa-circle text-emerald-400" style="margin-right: 0.5rem; font-size: 0.6rem;"></i> Terbuka untuk Freelance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Massive Cut-Off Typography: [JUAN].DEV -->
+      <div class="footer-giant-cutout">
+        <h1>[JUAN].DEV</h1>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span id="current-year">2026</span> Juan Alfredo Ferryra Situmorang. Hak cipta dilindungi undang-undang.
+        </div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <span>Dirancang & Dibangun dengan ❤️ + GSAP</span>
+          <span style="font-size: 0.75rem; color: #4B5563;">Tekan <span class="key-badge">J</span> untuk Easter Egg</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ==========================================================================
+       EASTER EGG OVERLAY: RYŌIKI TENKAI / DOMAIN EXPANSION (JUJUTSU KAISEN)
+       ========================================================================== -->
+  <div id="easter-egg-overlay" role="dialog" aria-modal="true">
+    <div class="egg-domain-title">領域展開 : 無量空処</div>
+    <div class="egg-sub">RYŌIKI TENKAI : UNLIMITED VOID</div>
+    <p style="max-width: 650px; font-size: 1.15rem; color: #CBD5E1; line-height: 1.8; margin-bottom: 2rem;">
+      "Semua informasi mengalir tanpa henti. Kode tak terbatas, kecepatan rendering mutlak. Selamat datang di alam bawah sadar pengembang Juan Alfredo."
+    </p>
+    <button class="btn-primary" id="close-easter-egg-btn" style="background: var(--accent-gradient);">
+      <span>Tutup Dimensi (ESC)</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       SCRIPTS (CDNs & MODULAR JS FILES)
+       ========================================================================== -->
+  <!-- GSAP Core & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Canvas Confetti for Easter Egg -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Modular Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/extras.js"></script>
+</body>
+</html>
